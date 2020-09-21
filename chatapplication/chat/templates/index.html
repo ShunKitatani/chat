@@ -8,5 +8,8 @@
 
 <h1>データ</h1>
 {% for item in data %}
-{{item}}
+<a href="{% url 'room' %}">roomへ</a>
+{{item.name}}
+{{item.age}}
+<br>
 {% endfor %}
