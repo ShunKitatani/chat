@@ -1,1 +1,12 @@
-<h1>Hello</h1>
+<form action="{% url 'index' %}" method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" value="click">
+</form>
+
+
+
+<h1>データ</h1>
+{% for item in data %}
+{{item}}
+{% endfor %}
