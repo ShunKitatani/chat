@@ -38,10 +38,13 @@ def logoutfunc(request):
     return redirect('login')
 
 def index(request):
+    try:
+        profile = request.user.userprofile
+    except:
+        profile = Profile(user=request.user)
     if request.method == 'POST':
-        obj = Profile()
-        profile = ProfileForm(request.POST, instance=obj)
-        profile.save()
+        form = ProfileForm(request.POST, instance=profile)
+        form.save()
     data = Profile.objects.all()
     params = {
         'form': ProfileForm(),
