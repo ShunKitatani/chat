@@ -6,7 +6,7 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         fields = ['name','age']
 
-# class RoomForm(forms.ModelRoom):
+# class RoomForm(forms.ModelForm):
 #     class Meta:
 #         model = Room
 #         fields = ['content']

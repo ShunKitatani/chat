@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import ProfileForm
-from .models import Profile
+from .models import Profile, Room
 # Create your views here.
 
 def signupfunc(request):
@@ -53,9 +53,10 @@ def index(request):
     return render(request, 'index.html', params)
 
 def room(request, pk):
-    # if request.method == 'POST':
-    #     obj = Room()
-    #     room = RoomForm(request.POST, instance=obj)
-    #     room.save()
-    object = Profile.objects.get(pk=pk)
-    return render(request, 'room.html', {'object':object})
+    pf = Profile.objects.get(pk=pk)
+    user_id = request.user.id
+    user_id = User.objects.get(pk=user_id)
+    room = Room(user=user_id, profile=pf)
+    print(pf.id)
+    room.save()
+    return render(request, 'room.html')
