@@ -8,7 +8,7 @@
 
 <h1>データ</h1>
 {% for item in data %}
-<a href="{% url 'room' %}">roomへ</a>
+<a href="{% url 'room' item.pk %}">roomへ</a>
 {{item.name}}
 {{item.age}}
 <br>

@@ -14,5 +14,10 @@ def index(request):
     }
     return render(request, 'index.html', params)
 
-def room(request):
-    return render(request, 'room.html')
+def room(request, pk):
+    # if request.method == 'POST':
+    #     obj = Room()
+    #     room = RoomForm(request.POST, instance=obj)
+    #     room.save()
+    object = Profile.objects.get(pk=pk)
+    return render(request, 'room.html', {'object':object})

@@ -5,5 +5,5 @@ from .views import index, room
 
 urlpatterns = [
     path('index/', index, name='index'),
-    path('room/', room, name='room'),
+    path('room/<int:pk>', room, name='room'),
 ]
